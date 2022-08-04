@@ -1,0 +1,4 @@
+repos_path_prefix: /Repos/michael.shtelma@databricks.com/dlt-cicd-demo
+git_url: https://github.com/databricks/dlt-cicd-demo.git
+provider: gitHub
+branch: master

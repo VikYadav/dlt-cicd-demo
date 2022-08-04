@@ -1,0 +1,29 @@
+{
+    "name": "msh-dlt-loans-cicd-{{prefix}}",
+    "storage": "dbfs:/Users/msh/dlt/loans_cicd",
+    "target": "msh_dlt_loan_cicd",
+    "development": true,
+    "continuous": false,
+    "edition": "advanced",
+    "photon": false,
+    "configuration": {
+      "raw_input": "{{raw_input}}"
+    },
+    "clusters": [
+        {
+            "label": "default",
+            "autoscale": {
+                "min_workers": 1,
+                "max_workers": 5
+            }
+        }
+    ],
+    "libraries": [
+        {
+            "notebook": {
+                "path": "{{path}}/01-DLT-Loan-pipeline-SQL"
+            }
+        }
+    ]
+    
+}
