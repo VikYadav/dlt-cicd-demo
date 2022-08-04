@@ -13,7 +13,7 @@ try:
         .getOrElse(None)
     )
     # api_url = databricks_utils._get_command_context().extraContext().get("api_url").get()
-    os.environ["DATABRICKS_HOST"] = "https://e2-demo-field-eng.cloud.databricks.com/"
+    os.environ["DATABRICKS_HOST"] = "https://e2-demo-west.cloud.databricks.com/"
     os.environ["DATABRICKS_TOKEN"] = databricks_token
 except:
     pass
