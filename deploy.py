@@ -17,7 +17,7 @@ try:
     # api_url = databricks_utils._get_command_context().extraContext().get("api_url").get()
     os.environ["DATABRICKS_HOST"] = 'https://e2-demo-west.cloud.databricks.com/'
     #os.environ["DATABRICKS_TOKEN"] = databricks_token
-    os.environ["DATABRICKS_TOKEN"] = 'dapie6f46ba96a4b61ca9c2b0d302ec52880'
+    os.environ["DATABRICKS_TOKEN"] = <PAT>
 except:
     pass
 
