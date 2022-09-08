@@ -5,17 +5,19 @@ import os
 from typing import Tuple
 
 try:
-    databricks_token = (
-        dbutils.notebook.entry_point.getDbutils()
-        .notebook()
-        .getContext()
-        .apiToken()
-        .getOrElse(None)
-    )
+    # Commenting the following line as this will fail from the CLI becasue of the absence of the dbutils package. 
+    # This can be uncommented if running from the notebook.
+    # databricks_token = (
+    #     dbutils.notebook.entry_point.getDbutils()
+    #     .notebook()
+    #     .getContext()
+    #     .apiToken()
+    #     .getOrElse(None)
+    # )
     # api_url = databricks_utils._get_command_context().extraContext().get("api_url").get()
-    os.environ["DATABRICKS_HOST"] = "https://e2-demo-west.cloud.databricks.com/"
+    os.environ["DATABRICKS_HOST"] = 'https://e2-demo-west.cloud.databricks.com/'
     #os.environ["DATABRICKS_TOKEN"] = databricks_token
-    os.environ["DATABRICKS_TOKEN"] = dbutils.secrets.get(scope="rest_api", key="token")
+    os.environ["DATABRICKS_TOKEN"] = 'dapie6f46ba96a4b61ca9c2b0d302ec52880'
 except:
     pass
 
@@ -55,7 +57,7 @@ def prepare_dlt_conf(prefix: str) -> str:
     env = Environment(autoescape=select_autoescape())
     templ = env.from_string(pathlib.Path("dlt_config.json").read_text())
     dlt_def = templ.render(
-        path=repo_path, prefix=prefix, raw_input="/Users/msh/demo/dlt_loan"
+        path=repo_path, prefix=prefix, raw_input="/demo/dlt_loan"
     )
     dlt_def = json.loads(dlt_def)
     return dlt_def
@@ -107,6 +109,7 @@ def wait_while_dlt_updating(api_client, pipeline_id, update_id, wait_time=5) -> 
 
 repo_path, prefix = get_repo_path(repos_path_prefix, branch)
 print("Checking out the following repo: ", repo_path)
+print("prefix : ",prefix)
 
 repo = repos_service.create_repo(url=git_url, provider=provider, path=repo_path)
 try:
