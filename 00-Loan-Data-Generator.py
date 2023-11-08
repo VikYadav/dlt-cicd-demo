@@ -1,4 +1,5 @@
 # Databricks notebook source
+# THIS IS COMMENT
 # MAGIC %md
 # MAGIC # Data generator for DLT pipeline
 # MAGIC This notebook will generate data in the given storage path to simulate a data flow.
